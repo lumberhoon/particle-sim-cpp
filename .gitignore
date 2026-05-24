@@ -1,0 +1,5 @@
+motion
+*.out
+*.o
+.DS_Store
+.vscode/
