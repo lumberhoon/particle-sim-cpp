@@ -12,7 +12,7 @@ void commandRouter(std::vector<Particle>& particles, const Wall& w, Random& rand
 
     std::string command {};
     std::cout << "Command: ";
-    std::cin >> command;      
+    std::getline(std::cin, command);      
 
     std::unordered_map<std::string, std::function<void()>> comMap;
 
@@ -21,10 +21,12 @@ void commandRouter(std::vector<Particle>& particles, const Wall& w, Random& rand
     comMap["q"] = [&running]() {std::cout << "Exiting...\n"; running = false;};
 
         
-    if (!(comMap.contains(command))) {
+    auto it = comMap.find(command);
+
+    if (it == comMap.end() || command.empty()) {
         std::cout << "a: Add more Particles\ne: Erase Particles\nq: Quit\n\n";
     } else {
-        comMap[command]();
+        it->second();
     }
 }
 

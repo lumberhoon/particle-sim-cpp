@@ -13,10 +13,10 @@ int main() {
     std::vector<Particle> particles {};
     for (int i = 0; i < 3; ++i) {
         particles.push_back({ 
-            .posX = random.rangeFloat(w.lWall, w.rWall), 
-            .posY = random.rangeFloat(w.bWall, w.tWall),
-            .velX = random.rangeFloat(-1.0f, 9.5f),
-            .velY = random.rangeFloat(-1.0f, 9.5f)
+            random.rangeFloat(w.lWall, w.rWall), 
+            random.rangeFloat(w.bWall, w.tWall),
+            random.rangeFloat(-3.0f, 3.0f),
+            random.rangeFloat(-3.0f, -3.0f)
         });
     }
 

@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <limits>
 #include "motion.h"
 #include "commands.h"
 #include "random.h"
@@ -15,6 +16,7 @@ void addParticleCommand(std::vector<Particle>& particles, const Wall& w, Random&
     int step {};
     std::cout << "\nFrame count: ";
     std::cin >> step;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     addRandomParticle(particles, w, random, spawnCount);
 

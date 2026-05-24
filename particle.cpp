@@ -51,10 +51,10 @@ void addRandomParticle(std::vector<Particle>& particles, const Wall& w, Random& 
 
 
 Particle createRandomParticle(const Wall& w, Random& random) {
-    Particle p = { .posX = random.rangeFloat(w.lWall, w.rWall), 
-                   .posY = random.rangeFloat(w.bWall, w.tWall),
-                   .velX = random.rangeFloat(-1.0f, 9.5f),
-                   .velY = random.rangeFloat(-1.0f, 9.5f)
+    Particle p = { random.rangeFloat(w.lWall, w.rWall), 
+                   random.rangeFloat(w.bWall, w.tWall),
+                   random.rangeFloat(-3.0f, 3.0f),
+                   random.rangeFloat(-3.0f, -3.0f)
                  };
    return p; 
 }
