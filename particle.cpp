@@ -69,11 +69,19 @@ void eraseLastParticle(std::vector<Particle>& particles) {
         std::cout << "Particle amount: ";
         std::cin >> count;
 
-        if (count <= particles.size()) {
-            running = false;
-        } else {
-                std::cout << "Removal Amount must be smaller than Particle Amount.\n\n";
-               }
+        if (count < 0) {
+            std::cout << "Cannot be a negative number\n\n";
+            continue;
+        }
+
+        if (static_cast<std::size_t>(count) > particles.size()) {
+            std::cout << "Removal Amount must be smaller or equal to Particle Amount.\n\n";
+            continue;
+
+        } 
+        
+        running = false;
+    
         }
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 

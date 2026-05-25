@@ -43,7 +43,7 @@ void eraseParticleCommand(std::vector<Particle>& particles, const Wall& w, Rando
     auto it = eraseMap.find(command);
 
     if (it == eraseMap.end() || command.empty()) {
-        std::cout << "all: Remove all Particles\nSome: Erase some Particles\n\n";
+        std::cout << "all: Remove all Particles\nsome: Erase some Particles\n\n";
     } else {
         it->second();
     }
