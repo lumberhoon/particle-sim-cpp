@@ -1,6 +1,8 @@
 #include "motion.h"
 #include "random.h"
 #include <iostream>
+#include <vector>
+#include <limits>
 
 void updatePosition(Particle& p, const Wall& w) {
 
@@ -54,7 +56,34 @@ Particle createRandomParticle(const Wall& w, Random& random) {
     Particle p = { random.rangeFloat(w.lWall, w.rWall), 
                    random.rangeFloat(w.bWall, w.tWall),
                    random.rangeFloat(-3.0f, 3.0f),
-                   random.rangeFloat(-3.0f, -3.0f)
+                   random.rangeFloat(-3.0f, 3.0f)
                  };
    return p; 
+}
+
+void eraseLastParticle(std::vector<Particle>& particles) {
+    bool running = true;
+    int count {};
+    while (running) {
+        
+        std::cout << "Particle amount: ";
+        std::cin >> count;
+
+        if (count <= particles.size()) {
+            running = false;
+        } else {
+                std::cout << "Removal Amount must be smaller than Particle Amount.\n\n";
+               }
+        }
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    for (int i = 0; i < count; ++i) {
+        particles.pop_back();
+    }
+}
+
+void eraseAllParticles(std::vector<Particle>& particles) {
+    particles.clear();
+
+    std::cout << "All particles removed...\n\n";
 }

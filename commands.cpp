@@ -1,6 +1,9 @@
 #include <iostream>
 #include <vector>
 #include <limits>
+#include <string>
+#include <functional>
+#include <unordered_map>
 #include "motion.h"
 #include "commands.h"
 #include "random.h"
@@ -27,5 +30,22 @@ void addParticleCommand(std::vector<Particle>& particles, const Wall& w, Random&
 }
 
 void eraseParticleCommand(std::vector<Particle>& particles, const Wall& w, Random& random) {
-    return;
+    
+    std::string command {};
+    std::cout << "Erase Command: ";
+    std::cin >> command;
+
+    std::unordered_map<std::string, std::function<void()>> eraseMap;
+
+    eraseMap["all"] = [&particles]() {eraseAllParticles(particles);};
+    eraseMap["some"] = [&particles]() {eraseLastParticle(particles);};
+
+    auto it = eraseMap.find(command);
+
+    if (it == eraseMap.end() || command.empty()) {
+        std::cout << "all: Remove all Particles\nSome: Erase some Particles\n\n";
+    } else {
+        it->second();
+    }
+
 }
