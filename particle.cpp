@@ -90,6 +90,12 @@ void eraseLastParticle(std::vector<Particle>& particles) {
     }
 }
 
+void eraseRaylibParticles(std::vector<Particle>& particles) {
+    for (int i = 0; i < 10; ++i) {
+        particles.pop_back();
+    }
+}
+
 void eraseAllParticles(std::vector<Particle>& particles) {
     particles.clear();
 

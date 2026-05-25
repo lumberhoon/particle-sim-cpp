@@ -16,7 +16,7 @@ int main() {
             random.rangeFloat(w.lWall, w.rWall), 
             random.rangeFloat(w.bWall, w.tWall),
             random.rangeFloat(-3.0f, 3.0f),
-            random.rangeFloat(-3.0f, -3.0f)
+            random.rangeFloat(-3.0f, 3.0f)
         });
     }
 

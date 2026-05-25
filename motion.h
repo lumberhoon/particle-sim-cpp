@@ -11,9 +11,9 @@ struct Particle {
 
 struct Wall {
     float lWall {0.0f};
-    float rWall {10.0f};
+    float rWall {800.0f};
     float bWall {0.0f};
-    float tWall {10.0f};
+    float tWall {600.0f};
 };
 
 void updatePosition(Particle& p, const Wall& w);
@@ -22,4 +22,5 @@ void printParticles(const std::vector<Particle>& particles, int frameNum);
 Particle createRandomParticle(const Wall& w, Random& random);
 void addRandomParticle(std::vector<Particle>& particles, const Wall& w, Random& random, int count);
 void eraseLastParticle(std::vector<Particle>& particles);
+void eraseRaylibParticles(std::vector<Particle>& particles);
 void eraseAllParticles(std::vector<Particle>& particles);
