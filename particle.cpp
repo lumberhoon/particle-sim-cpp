@@ -91,8 +91,8 @@ void eraseLastParticle(std::vector<Particle>& particles) {
 }
 
 void eraseRaylibParticles(std::vector<Particle>& particles, int count) {
-    for (int i = 0; i < count; ++i) {
-        particles.pop_back();
+    for (int i = 0; i < count && !particles.empty(); ++i) {
+            particles.pop_back();
     }
 }
 
