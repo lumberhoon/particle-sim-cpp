@@ -22,5 +22,5 @@ void printParticles(const std::vector<Particle>& particles, int frameNum);
 Particle createRandomParticle(const Wall& w, Random& random);
 void addRandomParticle(std::vector<Particle>& particles, const Wall& w, Random& random, int count);
 void eraseLastParticle(std::vector<Particle>& particles);
-void eraseRaylibParticles(std::vector<Particle>& particles);
-void eraseAllParticles(std::vector<Particle>& particles);
+void eraseRaylibParticles(std::vector<Particle>& particles, int count);
+void eraseAllParticles(std::vector<Particle>& particles);   
