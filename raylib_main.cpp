@@ -24,17 +24,20 @@ int main() {
 
     while (!WindowShouldClose()) {
         BeginDrawing();
-        ClearBackground(BLUE);
+        ClearBackground(BLACK);
         
         for (Particle& p : particles) {
             DrawCircle(p.posX, p.posY, 3, YELLOW);
         }
+        DrawText(TextFormat("Particles: %zu", particles.size()), 10, 10, 20, WHITE);
 
         if (run) {
             updateParticles(particles, w);
+            DrawText(TextFormat("Status: Running"), 10, 40, 20, WHITE);
+        } else {
+           DrawText(TextFormat("Status: Paused"), 10, 40, 20, WHITE); 
         }
 
-        DrawText("Raylib works", 10, 280, 20, BLACK);
         EndDrawing();
 
         if (IsKeyPressed(KEY_A)) {
@@ -42,7 +45,9 @@ int main() {
         }
 
         if (IsKeyPressed(KEY_E)) {
-            eraseRaylibParticles(particles);
+            if (particles.size() >= 10) {
+                eraseRaylibParticles(particles);
+            }
         }
 
         if (IsKeyPressed(KEY_C)) {
