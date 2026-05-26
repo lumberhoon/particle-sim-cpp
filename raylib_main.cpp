@@ -109,7 +109,8 @@ int main() {
         DrawText(fpsText, screenWidth - MeasureText(fpsText, normalText) - 10, 10, normalText, WHITE); 
         DrawText("A: Add 10 | E: Remove 10 | C: Clear | Space: Pause", 10, 70, smallText, WHITE);
         DrawText("SHIFT + A: Add 1,000 | SHIFT + E: Remove 1,000", 10, 100, smallText, WHITE);
-        DrawText(TextFormat("Screen: %d x %d", screenWidth, screenHeight), 10, 130, smallText, WHITE);
+        DrawText("F: Fullscreen", 10, 130, smallText, WHITE);
+        DrawText(TextFormat("Screen: %d x %d", screenWidth, screenHeight), 10, 160, smallText, WHITE);
 
         if (!paused) {
             DrawText("Status: Running", 10, 40, smallText, WHITE);
