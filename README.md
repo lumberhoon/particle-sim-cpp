@@ -1,25 +1,26 @@
 # Particle Sim C++
 
-A C++ particle simulation project built to practice C++ structure, real-time rendering, physics simulation, and eventually CPU/GPU performance testing.
+A C++ particle simulation project I’m building to learn C++ structure, real-time rendering, physics simulation, and eventually CPU/GPU performance testing.
 
-This started as a terminal-based particle simulation and is now a Raylib visual prototype.
+This started as a terminal-based particle sim and is now a Raylib visual prototype.
 
 ## Current Version
 
 **v0.2 - Raylib Visualization**
 
-## Current Features
+## Features
 
 - C++17
 - Raylib rendering
 - `std::vector` particle storage
 - Random particle spawning
 - Wall bouncing
-- Add, remove, clear, pause controls
+- Add, remove, clear, and pause controls
 - FPS and particle count HUD
 - Borderless fullscreen toggle
 - Display logic split into `display.cpp` / `display.h`
-- Original terminal version preserved
+- Terminal prototype preserved in `terminal/`
+- CMake build setup
 
 ## Controls
 
@@ -35,18 +36,33 @@ This started as a terminal-based particle simulation and is now a Raylib visual 
 
 ## Build
 
-### macOS
-
-Install Raylib:
+### macOS Dependencies
 
 ```bash
-brew install raylib pkg-config
+brew install raylib pkg-config cmake
 ```
 
-Compile:
+### Build with CMake
+
+From the project root:
 
 ```bash
-clang++ main.cpp particle.cpp random.cpp display.cpp -std=c++17 $(pkg-config --libs --cflags raylib) -o particle_sim
+cmake -S . -B build
+cmake --build build
+```
+
+Run:
+
+```bash
+./build/particle_sim
+```
+
+### Manual Compile Option
+
+If I want to compile directly without CMake:
+
+```bash
+clang++ src/main.cpp src/particle.cpp src/random.cpp src/display.cpp -Iinclude -std=c++17 $(pkg-config --libs --cflags raylib) -o particle_sim
 ```
 
 Run:
@@ -55,9 +71,18 @@ Run:
 ./particle_sim
 ```
 
+## Project Structure
+
+```text
+include/     Header files
+src/         Main Raylib simulation code
+terminal/    Original terminal prototype
+build/       Generated CMake build folder, not committed
+```
+
 ## Project Goal
 
-The goal is to build from a basic particle sim into a more realistic and performance-focused physics simulation project.
+The goal is to build this from a simple particle sim into a more realistic and performance-focused physics simulation project.
 
 Future versions will focus on better physics, CPU benchmarking, memory layout comparisons, and eventually GPU acceleration.
 
