@@ -1,7 +1,8 @@
 motion
+particle_sim
 raylib_test
-particle_raylib
 *.o
 *.out
 .DS_Store
+build/
 .vscode/
