@@ -30,6 +30,7 @@ void updatePosition(Particle& p, const Wall& w) {
     } 
 }
 
+
 void updateParticles(std::vector<Particle>& particles, const Wall& w) {
     for (Particle& p : particles) {
         updatePosition(p, w);
